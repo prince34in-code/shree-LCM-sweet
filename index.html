@@ -1,155 +1,307 @@
 <!doctype html>
-<html lang="en">
+<html lang="hi">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="theme-color" content="#211710" />
+    <meta name="theme-color" content="#fffaf4" />
     <meta
       name="description"
-      content="Small-batch Indian sweets, celebration cakes and oven-fresh bakery favourites, made with care at Shri LCM Sweets & Bakery."
+      content="श्री LCM स्वीट्स एंड बेकरी में ताज़ी मिठाइयाँ, केक और बेकरी की चीज़ें प्यार से बनाई जाती हैं।"
     />
-    <title>Shri LCM Sweets & Bakery — Made to be remembered</title>
+    <title>श्री LCM स्वीट्स एंड बेकरी — हर खुशी में मिठास</title>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Hind:wght@400;500;600;700&family=Noto+Sans+Devanagari:wght@400;500;600;700&display=swap"
       rel="stylesheet"
     />
   </head>
   <body>
     <div id="app">
       <header class="site-header">
-        <a class="brand" href="#home" aria-label="Shri LCM home">
-          <span class="brand-mark" aria-hidden="true">L</span>
-          <span class="brand-name">SHRI LCM <small>SWEETS & BAKERY</small></span>
+        <a class="brand" href="#home" aria-label="श्री LCM का मुख्य पेज">
+          <img class="brand-logo" src="/assets/logo/shree-lcm-navbar.png" alt="" />
         </a>
-        <button class="menu-toggle" type="button" aria-label="Open menu" aria-expanded="false">
+        <button class="menu-toggle" type="button" aria-label="मेन्यू खोलें" aria-expanded="false">
           <i data-lucide="menu"></i>
         </button>
         <nav class="main-nav" aria-label="Main navigation">
-          <a href="#collections">Our collections</a>
-          <a href="#bestsellers">Best sellers</a>
-          <a href="#celebrations">Celebrations</a>
-          <a href="#our-story">Our story</a>
+          <a href="#home">Home</a>
+          <a href="#our-story">About</a>
+          <a href="#contact">Contact</a>
         </nav>
-        <a class="header-order" href="https://wa.me/?text=Hello%20Shri%20LCM%2C%20I%27d%20like%20to%20place%20an%20order." target="_blank" rel="noreferrer">
-          <i data-lucide="message-circle"></i><span>Order on WhatsApp</span>
-        </a>
+        <div class="header-tools">
+          <form class="header-search" id="product-search" role="search">
+            <label class="sr-only" for="product-search-input">चीज़ें खोजें</label>
+            <input id="product-search-input" type="search" placeholder="मिठाई या चीज़ का नाम लिखें" autocomplete="off" />
+            <button type="submit" class="header-icon-button search-submit" aria-label="खोजें"><i data-lucide="search"></i></button>
+          </form>
+          <button class="header-icon-button search-toggle" type="button" aria-label="खोज खोलें" aria-expanded="false"><i data-lucide="search"></i></button>
+          <a class="header-icon-button account-link" href="https://wa.me/919304044471?text=%E0%A4%A8%E0%A4%AE%E0%A4%B8%E0%A5%8D%E0%A4%A4%E0%A5%87%20%E0%A4%B6%E0%A5%8D%E0%A4%B0%E0%A5%80%20LCM%2C%20%E0%A4%AE%E0%A5%81%E0%A4%9D%E0%A5%87%20%E0%A4%86%E0%A4%AA%E0%A4%95%E0%A5%80%20%E0%A4%AE%E0%A4%BF%E0%A4%A0%E0%A4%BE%E0%A4%87%E0%A4%AF%E0%A5%8B%E0%A4%82%20%E0%A4%95%E0%A5%87%20%E0%A4%AC%E0%A4%BE%E0%A4%B0%E0%A5%87%20%E0%A4%AE%E0%A5%87%E0%A4%82%20%E0%A4%9C%E0%A4%BE%E0%A4%A8%E0%A4%95%E0%A4%BE%E0%A4%B0%E0%A5%80%20%E0%A4%9A%E0%A4%BE%E0%A4%B9%E0%A4%BF%E0%A4%8F%E0%A5%A4" target="_blank" rel="noreferrer" aria-label="WhatsApp पर संपर्क करें"><i data-lucide="user-round"></i></a>
+          <button class="header-icon-button header-cart" type="button" data-open-cart aria-label="टोकरी खोलें">
+            <i data-lucide="shopping-bag"></i><span class="cart-count" data-cart-count>0</span>
+          </button>
+        </div>
       </header>
 
       <main>
-        <section class="hero" id="home" aria-label="Shri LCM Sweets and Bakery">
+        <section class="hero" id="home" aria-label="श्री LCM स्वीट्स एंड बेकरी">
           <div class="swiper hero-swiper">
             <div class="swiper-wrapper">
-              <div class="swiper-slide hero-slide" style="--hero-image: url('https://images.unsplash.com/photo-1578985545062-69928b1d9587?auto=format&fit=crop&w=2400&q=85')"></div>
+              <div class="swiper-slide hero-slide" style="--hero-image: url('https://images.unsplash.com/photo-1778448806852-db6a837fa98f?auto=format&fit=crop&w=2400&q=85')"></div>
               <div class="swiper-slide hero-slide" style="--hero-image: url('https://images.unsplash.com/photo-1606313564200-e75d5e30476c?auto=format&fit=crop&w=2400&q=85')"></div>
               <div class="swiper-slide hero-slide" style="--hero-image: url('https://images.unsplash.com/photo-1558961363-fa8fdf82db35?auto=format&fit=crop&w=2400&q=85')"></div>
             </div>
           </div>
           <div class="hero-shade"></div>
           <div class="hero-content">
-            <p class="eyebrow hero-eyebrow"><span></span> A little sweetness, a lot of heart</p>
-            <h1>Made to be<br /><em>remembered.</em></h1>
-            <p class="hero-copy">Time-honoured Indian mithai, beautiful bakes<br class="desktop-break" /> and the moments that bring us together.</p>
+            <p class="eyebrow hero-eyebrow"><span></span>SHREE LCM SWEETS</p>
+            <h1>हर खुशी में<br /><em>मिठास बाँटें।</em></h1>
+            <p class="hero-copy">ताज़ी मिठाइयाँ, हर खास मौके के लिए।</p>
             <div class="hero-actions">
-              <a class="button button-gold" href="https://wa.me/?text=Hello%20Shri%20LCM%2C%20I%27d%20like%20to%20see%20the%20menu." target="_blank" rel="noreferrer">
-                Explore & order <i data-lucide="arrow-up-right"></i>
+              <a class="button button-gold" href="#collections">
+                मिठाइयाँ देखें <span class="hero-arrow" aria-hidden="true">→</span>
               </a>
-              <a class="text-link" href="#collections">Discover our craft <i data-lucide="arrow-down"></i></a>
             </div>
           </div>
-          <div class="hero-aside"><span>CRAFTED WITH CARE</span><span class="aside-line"></span><span>EST. WITH LOVE</span></div>
-          <div class="hero-pagination" aria-label="Hero slide controls">
+          <div class="hero-aside"><span>प्यार से बनाया</span><span class="aside-line"></span><span>सबके लिए</span></div>
+          <div class="hero-pagination" aria-label="तस्वीर बदलने के बटन">
             <div class="swiper-pagination"></div>
             <span class="slide-count"><span class="current-slide">01</span><span class="count-divider"> / </span>03</span>
           </div>
-          <a class="scroll-cue" href="#collections" aria-label="Scroll to collections"><span></span> SCROLL TO EXPLORE</a>
-        </section>
-
-        <section class="intro section-wrap" id="our-story">
-          <div class="intro-label"><span class="eyebrow">A sweeter kind of tradition</span></div>
-          <div class="intro-copy">
-            <h2>Some recipes are more<br />than recipes. <em>They're home.</em></h2>
-            <p>From the first stir of the kadhai to the last golden turn in the oven, everything we make carries a little piece of our story. Honest ingredients, patient hands, and flavours that feel like coming home.</p>
-            <a class="underlined-link" href="#contact">A little about us <i data-lucide="arrow-up-right"></i></a>
-          </div>
-          <div class="intro-stamp"><span>FRESHLY<br />MADE, ALWAYS</span><i data-lucide="sparkles"></i></div>
+          <a class="scroll-cue" href="#collections" aria-label="आगे की चीज़ें देखें"><span></span> नीचे देखें</a>
         </section>
 
         <section class="collections section-wrap" id="collections">
           <div class="section-heading">
-            <div><p class="eyebrow">A little something for every craving</p><h2>Made for <em>moments.</em></h2></div>
-            <p class="section-note">Old favourites, new memories.<br />Find your kind of sweet.</p>
+            <div><h2>अपनी पसंद की मिठाई चुनें</h2><p class="section-note">आपकी पसंदीदा मिठाइयाँ एक जगह।</p></div>
           </div>
-          <div class="collection-grid">
-            <a class="collection-card collection-large" href="#bestsellers">
-              <img src="https://images.unsplash.com/photo-1778448806852-db6a837fa98f?auto=format&fit=crop&w=1100&q=85" alt="Golden jalebi and traditional Indian sweets arranged for sharing" loading="lazy" />
-              <span class="collection-number">01 / THE CLASSICS</span><span class="collection-caption"><span><small>Handcrafted with tradition</small><strong>Indian Sweets</strong></span><i data-lucide="arrow-up-right"></i></span>
-            </a>
-            <a class="collection-card" href="#bestsellers">
-              <img src="https://images.unsplash.com/photo-1578985545062-69928b1d9587?auto=format&fit=crop&w=900&q=85" alt="Layered celebration cake finished with chocolate" loading="lazy" />
-              <span class="collection-number">02 / FOR THE CANDLE MOMENT</span><span class="collection-caption"><span><small>Baked for your big day</small><strong>Cakes</strong></span><i data-lucide="arrow-up-right"></i></span>
-            </a>
-            <a class="collection-card" href="#bestsellers">
-              <img src="https://images.unsplash.com/photo-1558961363-fa8fdf82db35?auto=format&fit=crop&w=900&q=85" alt="Golden cookies fresh from the oven" loading="lazy" />
-              <span class="collection-number">03 / A MOMENT FOR YOURSELF</span><span class="collection-caption"><span><small>Little bites of comfort</small><strong>Cookies</strong></span><i data-lucide="arrow-up-right"></i></span>
-            </a>
-            <a class="collection-card collection-wide" href="#bestsellers">
-              <img src="https://images.unsplash.com/photo-1509440159596-0249088772ff?auto=format&fit=crop&w=1100&q=85" alt="Freshly baked artisan bread with a crisp golden crust" loading="lazy" />
-              <span class="collection-number">04 / WARM FROM THE OVEN</span><span class="collection-caption"><span><small>Everyday, made a little better</small><strong>Bakery</strong></span><i data-lucide="arrow-up-right"></i></span>
-            </a>
+          <div class="sweet-category-grid" aria-label="मिठाइयों की श्रेणियाँ">
+            <a class="sweet-category-card" href="#bestsellers" data-category-shortcut="sweets"><img src="https://images.unsplash.com/photo-1714799263412-2e0c1f875959?auto=format&fit=crop&w=560&q=80" alt="रसगुल्ला" loading="lazy" /><span>रसगुल्ला</span></a>
+            <a class="sweet-category-card" href="#bestsellers" data-category-shortcut="sweets"><img src="https://plus.unsplash.com/premium_photo-1666900034249-4ddbab0c34f4?auto=format&fit=crop&w=560&q=80" alt="गुलाब जामुन" loading="lazy" /><span>गुलाब जामुन</span></a>
+            <a class="sweet-category-card" href="#bestsellers" data-category-shortcut="sweets"><img src="https://plus.unsplash.com/premium_photo-1677955072995-0066c6507a10?auto=format&fit=crop&w=560&q=80" alt="जलेबी" loading="lazy" /><span>जलेबी</span></a>
+            <a class="sweet-category-card" href="#bestsellers" data-category-shortcut="sweets"><img src="https://plus.unsplash.com/premium_photo-1698500035173-fdea60f9294e?auto=format&fit=crop&w=560&q=80" alt="काजू कतली" loading="lazy" /><span>काजू कतली</span></a>
+            <a class="sweet-category-card" href="#bestsellers" data-category-shortcut="sweets"><img src="https://plus.unsplash.com/premium_photo-1698500035443-d774d98aaf06?auto=format&fit=crop&w=560&q=80" alt="पेड़ा" loading="lazy" /><span>पेड़ा</span></a>
+            <a class="sweet-category-card" href="#bestsellers" data-category-shortcut="sweets"><img src="https://plus.unsplash.com/premium_photo-1674025748666-9ac6c8a7ab3d?auto=format&fit=crop&w=560&q=80" alt="सोन पापड़ी" loading="lazy" /><span>सोन पापड़ी</span></a>
+            <a class="sweet-category-card" href="#bestsellers" data-category-shortcut="sweets"><img src="https://images.unsplash.com/photo-1635952346904-95f2ccfcd029?auto=format&fit=crop&w=560&q=80" alt="बेसन लड्डू" loading="lazy" /><span>बेसन लड्डू</span></a>
+            <a class="sweet-category-card" href="#bestsellers" data-category-shortcut="sweets"><img src="https://plus.unsplash.com/premium_photo-1677706562643-0a029dbc9b97?auto=format&fit=crop&w=560&q=80" alt="रस मलाई" loading="lazy" /><span>रस मलाई</span></a>
+            <a class="sweet-category-card" href="#bestsellers" data-category-shortcut="sweets"><img src="https://plus.unsplash.com/premium_photo-1729038877250-3af682084f07?auto=format&fit=crop&w=560&q=80" alt="चमचम" loading="lazy" /><span>चमचम</span></a>
+            <a class="sweet-category-card" href="#bestsellers" data-category-shortcut="sweets"><img src="https://images.unsplash.com/photo-1778448806608-4b2d5817eff2?auto=format&fit=crop&w=560&q=80" alt="मोतीचूर लड्डू" loading="lazy" /><span>मोतीचूर लड्डू</span></a>
           </div>
+          <nav class="secondary-categories" aria-label="अन्य सामान">
+            <a href="#bestsellers" data-category-shortcut="bakery">बेकरी</a>
+            <a href="#bestsellers" data-category-shortcut="cakes">केक</a>
+            <a href="#bestsellers" data-category-shortcut="snacks">नमकीन और बिस्कुट</a>
+          </nav>
         </section>
 
         <section class="bestsellers" id="bestsellers">
           <div class="section-wrap">
             <div class="section-heading">
-              <div><p class="eyebrow">The ones everyone comes back for</p><h2>House <em>favourites.</em></h2></div>
-              <a class="underlined-link desktop-only" href="https://wa.me/?text=Hello%20Shri%20LCM%2C%20please%20share%20your%20complete%20menu." target="_blank" rel="noreferrer">See the full menu <i data-lucide="arrow-up-right"></i></a>
+              <div><h2>हमारी खास मिठाइयाँ</h2><p class="section-note">स्वाद और ताज़गी से भरी आपकी पसंदीदा मिठाइयाँ।</p></div>
+              <div class="store-actions">
+                <div class="product-rail-controls" aria-label="मिठाइयाँ आगे-पीछे देखें">
+                  <button type="button" data-scroll-products="prev" aria-label="पिछली मिठाइयाँ"><i data-lucide="chevron-left"></i></button>
+                  <button type="button" data-scroll-products="next" aria-label="अगली मिठाइयाँ"><i data-lucide="chevron-right"></i></button>
+                </div>
+                <button class="view-all-button" type="button" data-view-sweets aria-controls="popular-product-grid" aria-expanded="false">सभी मिठाइयाँ देखें</button>
+              </div>
             </div>
-            <div class="product-grid">
-              <article class="product-card">
-                <a class="product-image" href="https://wa.me/?text=Hello%20Shri%20LCM%2C%20I%27d%20like%20to%20order%20Kaju%20Katli." target="_blank" rel="noreferrer"><img src="https://images.unsplash.com/photo-1778448806852-db6a837fa98f?auto=format&fit=crop&w=800&q=85" alt="Traditional Indian mithai, including golden jalebi" loading="lazy" /><span class="product-tag">A HOUSE CLASSIC</span><span class="product-arrow"><i data-lucide="arrow-up-right"></i></span></a>
-                <div class="product-info"><div><h3>Kaju Katli</h3><p>Silky cashew · silver leaf</p></div><span class="price">₹ 480 <small>/ 500g</small></span></div>
+            <p class="store-notice">सही दाम और मिलने की जानकारी WhatsApp पर पूछें।</p>
+            <div class="category-filters" role="group" aria-label="सामान की किस्म चुनें">
+              <button class="category-filter is-active" type="button" data-category-filter="sweets" aria-pressed="true">मिठाइयाँ</button>
+              <button class="category-filter" type="button" data-category-filter="all" aria-pressed="false">सब</button>
+              <button class="category-filter" type="button" data-category-filter="bakery" aria-pressed="false">बेकरी</button>
+              <button class="category-filter" type="button" data-category-filter="cakes" aria-pressed="false">केक</button>
+              <button class="category-filter" type="button" data-category-filter="snacks" aria-pressed="false">नमकीन व बिस्कुट</button>
+            </div>
+            <p class="search-results" id="search-results" role="status" hidden></p>
+            <div class="product-grid" id="popular-product-grid">
+              <article class="product-card sweets-inquiry-card" data-category="sweets" data-name="रसगुल्ला">
+                <a class="product-image" href="https://wa.me/919304044471?text=Namaste%2C%20please%20share%20Rasgulla%20price%20and%20availability." target="_blank" rel="noreferrer"><img src="https://images.unsplash.com/photo-1714799263412-2e0c1f875959?auto=format&fit=crop&w=800&q=80" alt="रसगुल्ला" loading="lazy" /></a>
+                <div class="product-info"><h3>रसगुल्ला</h3><span class="price">दाम पूछें</span></div>
+                <a class="add-to-cart sweets-inquiry" href="https://wa.me/919304044471?text=Namaste%2C%20please%20share%20Rasgulla%20price%20and%20availability." target="_blank" rel="noreferrer">WhatsApp पर पूछें</a>
               </article>
-              <article class="product-card">
-                <a class="product-image" href="https://wa.me/?text=Hello%20Shri%20LCM%2C%20I%27d%20like%20to%20order%20Chocolate%20Truffle%20Cake." target="_blank" rel="noreferrer"><img src="https://images.unsplash.com/photo-1578985545062-69928b1d9587?auto=format&fit=crop&w=800&q=85" alt="Rich chocolate layer cake" loading="lazy" /><span class="product-tag">MADE TO CELEBRATE</span><span class="product-arrow"><i data-lucide="arrow-up-right"></i></span></a>
-                <div class="product-info"><div><h3>Chocolate Truffle</h3><p>Dark chocolate · soft layers</p></div><span class="price">₹ 850 <small>/ 500g</small></span></div>
+              <article class="product-card sweets-inquiry-card" data-category="sweets" data-name="गुलाब जामुन">
+                <a class="product-image" href="https://wa.me/919304044471?text=Namaste%2C%20please%20share%20Gulab%20Jamun%20price%20and%20availability." target="_blank" rel="noreferrer"><img src="https://plus.unsplash.com/premium_photo-1666900034249-4ddbab0c34f4?auto=format&fit=crop&w=800&q=80" alt="गुलाब जामुन" loading="lazy" /></a>
+                <div class="product-info"><h3>गुलाब जामुन</h3><span class="price">दाम पूछें</span></div>
+                <a class="add-to-cart sweets-inquiry" href="https://wa.me/919304044471?text=Namaste%2C%20please%20share%20Gulab%20Jamun%20price%20and%20availability." target="_blank" rel="noreferrer">WhatsApp पर पूछें</a>
               </article>
-              <article class="product-card">
-                <a class="product-image" href="https://wa.me/?text=Hello%20Shri%20LCM%2C%20I%27d%20like%20to%20order%20Nankhatai." target="_blank" rel="noreferrer"><img src="https://images.unsplash.com/photo-1558961363-fa8fdf82db35?auto=format&fit=crop&w=800&q=85" alt="Freshly baked buttery cookies" loading="lazy" /><span class="product-tag">TEA-TIME FAVOURITE</span><span class="product-arrow"><i data-lucide="arrow-up-right"></i></span></a>
-                <div class="product-info"><div><h3>Desi Nankhatai</h3><p>Cardamom · melt-in-your-mouth</p></div><span class="price">₹ 220 <small>/ 250g</small></span></div>
+              <article class="product-card sweets-inquiry-card" data-category="sweets" data-name="जलेबी">
+                <a class="product-image" href="https://wa.me/919304044471?text=Namaste%2C%20please%20share%20Jalebi%20price%20and%20availability." target="_blank" rel="noreferrer"><img src="https://plus.unsplash.com/premium_photo-1677955072995-0066c6507a10?auto=format&fit=crop&w=800&q=80" alt="जलेबी" loading="lazy" /></a>
+                <div class="product-info"><h3>जलेबी</h3><span class="price">दाम पूछें</span></div>
+                <a class="add-to-cart sweets-inquiry" href="https://wa.me/919304044471?text=Namaste%2C%20please%20share%20Jalebi%20price%20and%20availability." target="_blank" rel="noreferrer">WhatsApp पर पूछें</a>
               </article>
-              <article class="product-card">
-                <a class="product-image" href="https://wa.me/?text=Hello%20Shri%20LCM%2C%20I%27d%20like%20to%20order%20Motichoor%20Ladoo." target="_blank" rel="noreferrer"><img src="https://images.unsplash.com/photo-1778448806608-4b2d5817eff2?auto=format&fit=crop&w=800&q=85" alt="Sweet jalebi and traditional Indian desserts arranged for a celebration" loading="lazy" /><span class="product-tag">JOY IN EVERY BITE</span><span class="product-arrow"><i data-lucide="arrow-up-right"></i></span></a>
-                <div class="product-info"><div><h3>Motichoor Ladoo</h3><p>Fine boondi · a touch of saffron</p></div><span class="price">₹ 360 <small>/ 500g</small></span></div>
+              <article class="product-card" data-product-id="kaju-katli" data-category="sweets" data-name="काजू कतली" data-price="480" data-base-grams="500">
+                <a class="product-image" href="https://wa.me/919304044471?text=%E0%A4%A8%E0%A4%AE%E0%A4%B8%E0%A5%8D%E0%A4%A4%E0%A5%87%20%E0%A4%B6%E0%A5%8D%E0%A4%B0%E0%A5%80%20LCM%2C%20%E0%A4%AE%E0%A5%81%E0%A4%9D%E0%A5%87%20%E0%A4%95%E0%A4%BE%E0%A4%9C%E0%A5%82%20%E0%A4%95%E0%A4%A4%E0%A4%B2%E0%A5%80%20%E0%A4%9A%E0%A4%BE%E0%A4%B9%E0%A4%BF%E0%A4%8F%E0%A5%A4" target="_blank" rel="noreferrer"><img src="https://plus.unsplash.com/premium_photo-1698500035173-fdea60f9294e?auto=format&fit=crop&w=800&q=85" alt="काजू कतली" loading="lazy" /><span class="product-arrow"><i data-lucide="arrow-up-right"></i></span></a>
+                <div class="product-info"><div><h3>काजू कतली</h3><span class="availability">मिलने की जानकारी WhatsApp पर लें</span></div><span class="price" data-product-price>दाम पूछें</span><label class="weight-select-label">कितना वजन चाहिए?<select class="weight-select" data-weight-select aria-label="काजू कतली का वजन चुनें"><option value="250">250 ग्राम</option><option value="500" selected>500 ग्राम</option><option value="1000">1 किलो</option></select></label></div>
+                <button class="add-to-cart" type="button" data-add-to-cart>टोकरी में डालें</button>
+              </article>
+              <article class="product-card sweets-inquiry-card" data-category="sweets" data-name="पेड़ा">
+                <a class="product-image" href="https://wa.me/919304044471?text=Namaste%2C%20please%20share%20Peda%20price%20and%20availability." target="_blank" rel="noreferrer"><img src="https://plus.unsplash.com/premium_photo-1698500035443-d774d98aaf06?auto=format&fit=crop&w=800&q=80" alt="पेड़ा" loading="lazy" /></a>
+                <div class="product-info"><h3>पेड़ा</h3><span class="price">दाम पूछें</span></div>
+                <a class="add-to-cart sweets-inquiry" href="https://wa.me/919304044471?text=Namaste%2C%20please%20share%20Peda%20price%20and%20availability." target="_blank" rel="noreferrer">WhatsApp पर पूछें</a>
+              </article>
+              <article class="product-card sweets-inquiry-card" data-category="sweets" data-name="सोन पापड़ी">
+                <a class="product-image" href="https://wa.me/919304044471?text=Namaste%2C%20please%20share%20Soan%20Papdi%20price%20and%20availability." target="_blank" rel="noreferrer"><img src="https://plus.unsplash.com/premium_photo-1674025748666-9ac6c8a7ab3d?auto=format&fit=crop&w=800&q=80" alt="सोन पापड़ी" loading="lazy" /></a>
+                <div class="product-info"><h3>सोन पापड़ी</h3><span class="price">दाम पूछें</span></div>
+                <a class="add-to-cart sweets-inquiry" href="https://wa.me/919304044471?text=Namaste%2C%20please%20share%20Soan%20Papdi%20price%20and%20availability." target="_blank" rel="noreferrer">WhatsApp पर पूछें</a>
+              </article>
+              <article class="product-card sweets-inquiry-card" data-category="sweets" data-name="बेसन लड्डू">
+                <a class="product-image" href="https://wa.me/919304044471?text=Namaste%2C%20please%20share%20Besan%20Ladoo%20price%20and%20availability." target="_blank" rel="noreferrer"><img src="https://images.unsplash.com/photo-1635952346904-95f2ccfcd029?auto=format&fit=crop&w=800&q=80" alt="बेसन लड्डू" loading="lazy" /></a>
+                <div class="product-info"><h3>बेसन लड्डू</h3><span class="price">दाम पूछें</span></div>
+                <a class="add-to-cart sweets-inquiry" href="https://wa.me/919304044471?text=Namaste%2C%20please%20share%20Besan%20Ladoo%20price%20and%20availability." target="_blank" rel="noreferrer">WhatsApp पर पूछें</a>
+              </article>
+              <article class="product-card sweets-inquiry-card" data-category="sweets" data-name="रस मलाई">
+                <a class="product-image" href="https://wa.me/919304044471?text=Namaste%2C%20please%20share%20Rasmalai%20price%20and%20availability." target="_blank" rel="noreferrer"><img src="https://plus.unsplash.com/premium_photo-1677706562643-0a029dbc9b97?auto=format&fit=crop&w=800&q=80" alt="रस मलाई" loading="lazy" /></a>
+                <div class="product-info"><h3>रस मलाई</h3><span class="price">दाम पूछें</span></div>
+                <a class="add-to-cart sweets-inquiry" href="https://wa.me/919304044471?text=Namaste%2C%20please%20share%20Rasmalai%20price%20and%20availability." target="_blank" rel="noreferrer">WhatsApp पर पूछें</a>
+              </article>
+              <article class="product-card sweets-inquiry-card" data-category="sweets" data-name="चमचम">
+                <a class="product-image" href="https://wa.me/919304044471?text=Namaste%2C%20please%20share%20Chomchom%20price%20and%20availability." target="_blank" rel="noreferrer"><img src="https://plus.unsplash.com/premium_photo-1729038877250-3af682084f07?auto=format&fit=crop&w=800&q=80" alt="चमचम" loading="lazy" /></a>
+                <div class="product-info"><h3>चमचम</h3><span class="price">दाम पूछें</span></div>
+                <a class="add-to-cart sweets-inquiry" href="https://wa.me/919304044471?text=Namaste%2C%20please%20share%20Chomchom%20price%20and%20availability." target="_blank" rel="noreferrer">WhatsApp पर पूछें</a>
+              </article>
+              <article class="product-card" data-product-id="motichoor-ladoo" data-category="sweets" data-name="मोतीचूर लड्डू" data-price="360" data-base-grams="500">
+                <a class="product-image" href="https://wa.me/919304044471?text=%E0%A4%A8%E0%A4%AE%E0%A4%B8%E0%A5%8D%E0%A4%A4%E0%A5%87%20%E0%A4%B6%E0%A5%8D%E0%A4%B0%E0%A5%80%20LCM%2C%20%E0%A4%AE%E0%A5%81%E0%A4%9D%E0%A5%87%20%E0%A4%AE%E0%A5%8B%E0%A4%A4%E0%A5%80%E0%A4%9A%E0%A5%82%E0%A4%B0%20%E0%A4%B2%E0%A4%A1%E0%A5%8D%E0%A4%A1%E0%A5%82%20%E0%A4%9A%E0%A4%BE%E0%A4%B9%E0%A4%BF%E0%A4%8F%E0%A5%A4" target="_blank" rel="noreferrer"><img src="https://images.unsplash.com/photo-1778448806608-4b2d5817eff2?auto=format&fit=crop&w=800&q=85" alt="मोतीचूर लड्डू" loading="lazy" /><span class="product-arrow"><i data-lucide="arrow-up-right"></i></span></a>
+                <div class="product-info"><div><h3>मोतीचूर लड्डू</h3><span class="availability">मिलने की जानकारी WhatsApp पर लें</span></div><span class="price" data-product-price>दाम पूछें</span><label class="weight-select-label">कितना वजन चाहिए?<select class="weight-select" data-weight-select aria-label="मोतीचूर लड्डू का वजन चुनें"><option value="250">250 ग्राम</option><option value="500" selected>500 ग्राम</option><option value="1000">1 किलो</option></select></label></div>
+                <button class="add-to-cart" type="button" data-add-to-cart>टोकरी में डालें</button>
+              </article>
+              <article class="product-card" data-product-id="chocolate-truffle" data-category="cakes" data-name="चॉकलेट केक" data-price="850">
+                <a class="product-image" href="https://wa.me/919304044471?text=%E0%A4%A8%E0%A4%AE%E0%A4%B8%E0%A5%8D%E0%A4%A4%E0%A5%87%20%E0%A4%B6%E0%A5%8D%E0%A4%B0%E0%A5%80%20LCM%2C%20%E0%A4%AE%E0%A5%81%E0%A4%9D%E0%A5%87%20%E0%A4%9A%E0%A5%89%E0%A4%95%E0%A4%B2%E0%A5%87%E0%A4%9F%20%E0%A4%95%E0%A5%87%E0%A4%95%20%E0%A4%95%E0%A5%87%20%E0%A4%A6%E0%A4%BE%E0%A4%AE%20%E0%A4%94%E0%A4%B0%20%E0%A4%89%E0%A4%AA%E0%A4%B2%E0%A4%AC%E0%A5%8D%E0%A4%A7%E0%A4%A4%E0%A4%BE%20%E0%A4%AC%E0%A4%A4%E0%A4%BE%E0%A4%8F%E0%A4%81%E0%A5%A4" target="_blank" rel="noreferrer"><img src="https://images.unsplash.com/photo-1578985545062-69928b1d9587?auto=format&fit=crop&w=800&q=85" alt="चॉकलेट से बना केक" loading="lazy" /><span class="product-arrow"><i data-lucide="arrow-up-right"></i></span></a>
+                <div class="product-info"><div><h3>चॉकलेट केक</h3><span class="availability">मिलने की जानकारी WhatsApp पर लें</span></div><span class="price">दाम पूछें</span></div>
+                <button class="add-to-cart" type="button" data-add-to-cart>टोकरी में डालें</button>
+              </article>
+              <article class="product-card" data-product-id="desi-nankhatai" data-category="snacks" data-name="नानखटाई" data-price="220">
+                <a class="product-image" href="https://wa.me/919304044471?text=%E0%A4%A8%E0%A4%AE%E0%A4%B8%E0%A5%8D%E0%A4%A4%E0%A5%87%20%E0%A4%B6%E0%A5%8D%E0%A4%B0%E0%A5%80%20LCM%2C%20%E0%A4%AE%E0%A5%81%E0%A4%9D%E0%A5%87%20%E0%A4%A8%E0%A4%BE%E0%A4%A8%E0%A4%96%E0%A4%9F%E0%A4%BE%E0%A4%88%20%E0%A4%9A%E0%A4%BE%E0%A4%B9%E0%A4%BF%E0%A4%8F%E0%A5%A4" target="_blank" rel="noreferrer"><img src="https://images.unsplash.com/photo-1558961363-fa8fdf82db35?auto=format&fit=crop&w=800&q=85" alt="ताज़ी और कुरकुरी नानखटाई" loading="lazy" /><span class="product-arrow"><i data-lucide="arrow-up-right"></i></span></a>
+                <div class="product-info"><div><h3>नानखटाई</h3><span class="availability">मिलने की जानकारी WhatsApp पर लें</span></div><span class="price">दाम पूछें</span></div>
+                <button class="add-to-cart" type="button" data-add-to-cart>टोकरी में डालें</button>
+              </article>
+              <article class="product-card bakery-inquiry-card" data-category="bakery" data-name="ताज़ी ब्रेड">
+                <a class="product-image" href="https://wa.me/919304044471?text=%E0%A4%A8%E0%A4%AE%E0%A4%B8%E0%A5%8D%E0%A4%A4%E0%A5%87%20%E0%A4%B6%E0%A5%8D%E0%A4%B0%E0%A5%80%20LCM%2C%20%E0%A4%86%E0%A4%9C%20%E0%A4%95%E0%A5%80%20%E0%A4%A4%E0%A4%BE%E0%A4%9C%E0%A4%BC%E0%A5%80%20%E0%A4%AC%E0%A5%8D%E0%A4%B0%E0%A5%87%E0%A4%A1%20%E0%A4%95%E0%A4%BE%20%E0%A4%A6%E0%A4%BE%E0%A4%AE%20%E0%A4%AC%E0%A4%A4%E0%A4%BE%E0%A4%8F%E0%A4%81%E0%A5%A4" target="_blank" rel="noreferrer"><img src="https://images.unsplash.com/photo-1509440159596-0249088772ff?auto=format&fit=crop&w=800&q=85" alt="ताज़ी ब्रेड" loading="lazy" /><span class="product-arrow"><i data-lucide="arrow-up-right"></i></span></a>
+                <div class="product-info"><div><h3>ताज़ी ब्रेड</h3><span class="availability">दाम और मिलने की जानकारी WhatsApp पर लें</span></div><span class="price">दाम पूछें</span></div>
+                <a class="add-to-cart bakery-inquiry" href="https://wa.me/919304044471?text=%E0%A4%A8%E0%A4%AE%E0%A4%B8%E0%A5%8D%E0%A4%A4%E0%A5%87%20%E0%A4%B6%E0%A5%8D%E0%A4%B0%E0%A5%80%20LCM%2C%20%E0%A4%86%E0%A4%9C%20%E0%A4%95%E0%A5%80%20%E0%A4%A4%E0%A4%BE%E0%A4%9C%E0%A4%BC%E0%A5%80%20%E0%A4%AC%E0%A5%8D%E0%A4%B0%E0%A5%87%E0%A4%A1%20%E0%A4%95%E0%A4%BE%20%E0%A4%A6%E0%A4%BE%E0%A4%AE%20%E0%A4%94%E0%A4%B0%20%E0%A4%AE%E0%A4%BF%E0%A4%B2%E0%A4%A8%E0%A5%87%20%E0%A4%95%E0%A5%80%20%E0%A4%9C%E0%A4%BE%E0%A4%A8%E0%A4%95%E0%A4%BE%E0%A4%B0%E0%A5%80%20%E0%A4%A6%E0%A5%87%E0%A4%82%E0%A5%A4" target="_blank" rel="noreferrer">इसका दाम WhatsApp पर पूछें</a>
               </article>
             </div>
-            <a class="underlined-link mobile-only" href="https://wa.me/?text=Hello%20Shri%20LCM%2C%20please%20share%20your%20complete%20menu." target="_blank" rel="noreferrer">See the full menu <i data-lucide="arrow-up-right"></i></a>
+            <a class="underlined-link mobile-only" href="https://wa.me/919304044471?text=%E0%A4%A8%E0%A4%AE%E0%A4%B8%E0%A5%8D%E0%A4%A4%E0%A5%87%20%E0%A4%B6%E0%A5%8D%E0%A4%B0%E0%A5%80%20LCM%2C%20%E0%A4%86%E0%A4%AA%E0%A4%95%E0%A5%80%20%E0%A4%AE%E0%A4%BF%E0%A4%A0%E0%A4%BE%E0%A4%87%E0%A4%AF%E0%A5%8B%E0%A4%82%20%E0%A4%95%E0%A5%80%20%E0%A4%AA%E0%A5%82%E0%A4%B0%E0%A5%80%20%E0%A4%B8%E0%A5%82%E0%A4%9A%E0%A5%80%20%E0%A4%AD%E0%A5%87%E0%A4%9C%E0%A5%87%E0%A4%82%E0%A5%A4" target="_blank" rel="noreferrer">पूरी सूची WhatsApp पर मँगाएँ <i data-lucide="arrow-up-right"></i></a>
           </div>
+        </section>
+
+        <dialog class="cart-dialog" id="cart-dialog" aria-labelledby="cart-title">
+          <div class="cart-panel">
+            <div class="cart-panel-header">
+              <div><p class="eyebrow">आपका सामान</p><h2 id="cart-title">आपकी टोकरी</h2></div>
+              <button class="cart-close" type="button" data-close-cart aria-label="टोकरी बंद करें"><i data-lucide="x"></i></button>
+            </div>
+            <div class="cart-panel-content">
+              <div class="cart-items" id="cart-items" aria-live="polite"></div>
+              <p class="cart-storage-status" id="cart-storage-status" role="status"></p>
+              <div class="cart-totals">
+                <div><span>अभी का जोड़</span><strong id="cart-subtotal">₹0</strong></div>
+                <div class="cart-grand-total"><span>सामान का जोड़ (डिलीवरी अलग)</span><strong id="cart-total">₹0</strong></div>
+                <p>घर पहुँचाने का खर्च और सही दाम WhatsApp पर बताए जाएँगे।</p>
+              </div>
+              <form class="checkout-form" id="checkout-form">
+                <h3>घर पहुँचाने की जानकारी</h3>
+                <label>आपका नाम<input name="customerName" autocomplete="name" required maxlength="100" /></label>
+                <label>मोबाइल नंबर<input name="mobile" type="tel" inputmode="tel" autocomplete="tel" pattern="\+?[0-9]{10,13}" title="10 अंकों का मोबाइल नंबर लिखें। चाहें तो आगे +91 भी लिख सकते हैं।" required /></label>
+                <label>गाँव / मोहल्ला<input name="locality" autocomplete="address-level3" placeholder="गाँव या मोहल्ले का नाम" required maxlength="100" /></label>
+                <label>पूरा पता<textarea name="address" autocomplete="street-address" rows="3" maxlength="500" required></textarea></label>
+                <fieldset class="delivery-area">
+                  <legend>डिलीवरी की जगह</legend>
+                  <p>हम <span data-delivery-radius>5</span> किलोमीटर के अंदर घर पहुँचाते हैं। आपका पता दुकान से इस दूरी के अंदर है?</p>
+                  <label><input type="radio" name="deliveryArea" value="within" required /> हाँ, मेरी जानकारी में अंदर है</label>
+                  <label><input type="radio" name="deliveryArea" value="outside" /> नहीं, बाहर है</label>
+                  <p class="delivery-area-status" id="delivery-area-status" role="status" aria-live="polite">दूरी की पुष्टि दुकान WhatsApp पर करेगी।</p>
+                </fieldset>
+                <label>कुछ बताना हो <span>(ज़रूरी नहीं)</span><textarea name="instructions" rows="2" maxlength="500"></textarea></label>
+                <fieldset class="payment-method">
+                  <legend>भुगतान का तरीका</legend>
+                  <label class="cod-option"><input type="radio" name="paymentMethod" value="cod" required checked /> सामान मिलने पर नकद (COD)</label>
+                  <p>पैसे सामान मिलने पर ही दें। ऑनलाइन भुगतान नहीं है।</p>
+                </fieldset>
+                <button class="button button-dark checkout-submit" type="submit" disabled><i data-lucide="message-circle"></i> WhatsApp पर ऑर्डर देखें</button>
+                <p class="checkout-status" id="checkout-status" role="status" aria-live="polite" hidden></p>
+                <p class="checkout-note">WhatsApp पर संदेश पहले देख लें, फिर भेजें। यह वेबसाइट अभी ऑर्डर सेव नहीं करती और संदेश भेजने से ऑर्डर पक्का नहीं होता।</p>
+              </form>
+            </div>
+          </div>
+        </dialog>
+
+        <section class="intro section-wrap why-choose-us" id="our-story">
+          <div class="intro-label"><span class="eyebrow">क्यों चुनें?</span></div>
+          <div class="intro-copy">
+            <h2>हमारी मिठास,<br /><em>हमारी पहचान</em></h2>
+            <p>आपकी पसंद और सुविधा का पूरा ध्यान।</p>
+            <ul class="why-benefits">
+              <li>ताज़ा मिठाइयाँ</li>
+              <li>स्वाद का भरोसा</li>
+              <li>आसान ऑर्डर</li>
+              <li>स्थानीय होम डिलीवरी</li>
+            </ul>
+            <a class="underlined-link" href="#visit-shop">दुकान की जानकारी <i data-lucide="arrow-up-right"></i></a>
+          </div>
+          <div class="intro-stamp"><span>घर के पास<br />आसान ऑर्डर</span><i data-lucide="message-circle"></i></div>
         </section>
 
         <section class="celebrations section-wrap" id="celebrations">
           <div class="celebration-image">
-            <img src="https://images.unsplash.com/photo-1511795409834-ef04bbd61622?auto=format&fit=crop&w=1400&q=85" alt="A warmly decorated celebration table" loading="lazy" />
-            <span class="image-note">For all the days<br />you'll talk about.</span>
+            <img src="https://images.unsplash.com/photo-1511795409834-ef04bbd61622?auto=format&fit=crop&w=1400&q=85" alt="सजावट के साथ खुशी का मौका" loading="lazy" />
+            <span class="image-note">हर खुशी के मौके पर<br />कुछ मीठा हो जाए।</span>
           </div>
           <div class="celebration-copy">
-            <p class="eyebrow">We'll bring the sweet part</p>
-            <h2>For the days<br />that mean <em>everything.</em></h2>
-            <p class="celebration-intro">Big milestones, small surprises, and all the lovely in-between. Tell us what you're celebrating; we'll make it taste like a memory.</p>
+            <p class="eyebrow">खास मौके</p>
+            <h2>हर मौके पर<br /><em>मिठास</em></h2>
+            <p class="celebration-intro">हर खास पल को मिठास के साथ मनाएँ।</p>
             <div class="occasion-list">
-              <a href="https://wa.me/?text=Hello%20Shri%20LCM%2C%20I%27m%20planning%20a%20birthday%20and%20would%20love%20to%20see%20your%20options." target="_blank" rel="noreferrer"><span>01</span> Birthdays <i data-lucide="arrow-up-right"></i></a>
-              <a href="https://wa.me/?text=Hello%20Shri%20LCM%2C%20I%27m%20planning%20a%20wedding%20and%20would%20love%20to%20discuss%20sweets." target="_blank" rel="noreferrer"><span>02</span> Weddings <i data-lucide="arrow-up-right"></i></a>
-              <a href="https://wa.me/?text=Hello%20Shri%20LCM%2C%20please%20share%20your%20festival%20sweets%20selection." target="_blank" rel="noreferrer"><span>03</span> Festivals <i data-lucide="arrow-up-right"></i></a>
-              <a href="https://wa.me/?text=Hello%20Shri%20LCM%2C%20I%27m%20looking%20for%20a%20thoughtful%20sweet%20gift." target="_blank" rel="noreferrer"><span>04</span> Just-because gifting <i data-lucide="arrow-up-right"></i></a>
+              <a href="https://wa.me/919304044471?text=नमस्ते%20श्री%20LCM%2C%20जन्मदिन%20के%20लिए%20मिठाई%20और%20केक%20की%20जानकारी%20दें।" target="_blank" rel="noreferrer"><span>01</span> जन्मदिन <i data-lucide="arrow-up-right"></i></a>
+              <a href="https://wa.me/919304044471?text=नमस्ते%20श्री%20LCM%2C%20शादी%20के%20लिए%20मिठाइयों%20की%20जानकारी%20दें।" target="_blank" rel="noreferrer"><span>02</span> शादी <i data-lucide="arrow-up-right"></i></a>
+              <a href="https://wa.me/919304044471?text=नमस्ते%20श्री%20LCM%2C%20त्योहार%20की%20मिठाइयों%20की%20सूची%20भेजें।" target="_blank" rel="noreferrer"><span>03</span> त्योहार <i data-lucide="arrow-up-right"></i></a>
+              <a href="https://wa.me/919304044471?text=नमस्ते%20श्री%20LCM%2C%20मिठाई%20का%20तोहफ़ा%20देना%20है।%20जानकारी%20दें।" target="_blank" rel="noreferrer"><span>04</span> मिठाई के गिफ्ट पैक <i data-lucide="arrow-up-right"></i></a>
             </div>
-            <a class="button button-dark" href="https://wa.me/?text=Hello%20Shri%20LCM%2C%20I%27d%20love%20to%20plan%20something%20special." target="_blank" rel="noreferrer">Let's make it special <i data-lucide="arrow-up-right"></i></a>
+            <a class="button button-dark" href="https://wa.me/919304044471?text=नमस्ते%20श्री%20LCM%2C%20मुझे%20एक%20खास%20मौके%20के%20लिए%20मिठाई%20चाहिए।" target="_blank" rel="noreferrer">अपनी पसंद बताएं <i data-lucide="arrow-up-right"></i></a>
           </div>
         </section>
 
-        <section class="closing-banner">
-          <div class="closing-inner"><p class="eyebrow">Whenever you're ready, we're here</p><h2>Life's a little sweeter<br />when it's <em>shared.</em></h2><a class="button button-gold" href="https://wa.me/?text=Hello%20Shri%20LCM%2C%20I%27d%20like%20to%20place%20an%20order." target="_blank" rel="noreferrer"><i data-lucide="message-circle"></i> Say hello on WhatsApp</a></div>
+        <section class="customer-favourites section-wrap" id="customer-favourites">
+          <div class="section-heading">
+            <div><h2>आपकी पसंद</h2></div>
+          </div>
+          <p class="section-note">अपनी पसंद चुनें और सामान देखें।</p>
+          <div class="favourite-links">
+            <a href="#bestsellers" data-category-shortcut="sweets"><span aria-hidden="true">01</span><strong>मिठाइयाँ</strong></a>
+            <a href="#bestsellers" data-category-shortcut="cakes"><span aria-hidden="true">02</span><strong>केक</strong></a>
+            <a href="#bestsellers" data-category-shortcut="snacks"><span aria-hidden="true">03</span><strong>बिस्कुट और नमकीन</strong></a>
+          </div>
+        </section>
+
+        <section class="owner-section section-wrap" id="owner">
+          <div class="owner-photo-placeholder" role="img" aria-label="महाजन जी की फोटो यहाँ जोड़ी जाएगी">
+            <span>फोटो यहाँ जोड़ी जाएगी</span>
+          </div>
+          <div class="owner-copy">
+            <h2>हमारे संचालक</h2>
+            <p class="owner-name">महाजन</p>
+            <p>श्री LCM Sweets में आपका स्वागत है।</p>
+          </div>
+        </section>
+
+        <section class="visit-shop section-wrap" id="visit-shop">
+          <div class="visit-copy">
+            <p class="eyebrow">हमारी दुकान</p>
+            <h2>हमारी दुकान पर आइए</h2>
+            <p>दुकान पर आपका स्वागत है।</p>
+            <p>पता यहाँ जोड़ा जाएगा।</p>
+          </div>
+          <div class="map-placeholder" role="img" aria-label="Google Maps लिंक का स्थान">
+            <i data-lucide="map-pin"></i>
+            <strong>Google Maps</strong>
+            <span>लिंक यहाँ जोड़ा जाएगा</span>
+          </div>
+        </section>
+
+        <section class="closing-banner order-now" id="order-now">
+          <div class="closing-inner"><p class="eyebrow">ऑर्डर करें</p><h2>मिठाई घर मँगवाएँ</h2><p class="special-offer-note">अपनी पसंद की मिठाई आसानी से ऑर्डर करें।</p><div class="order-now-actions"><button class="button button-dark" type="button" data-open-cart><i data-lucide="shopping-bag"></i> कार्ट देखें</button><a class="button button-gold" href="https://wa.me/919304044471?text=नमस्ते%20श्री%20LCM%2C%20आज%20की%20मिठाइयों%20और%20ऑर्डर%20की%20जानकारी%20दें।" target="_blank" rel="noreferrer"><i data-lucide="message-circle"></i> WhatsApp पर ऑर्डर करें</a></div></div>
           <div class="closing-decoration" aria-hidden="true">L</div>
         </section>
       </main>
@@ -157,15 +309,70 @@
       <footer class="site-footer" id="contact">
         <div class="footer-main">
           <div class="footer-brand">
-            <a class="brand brand-footer" href="#home"><span class="brand-mark" aria-hidden="true">L</span><span class="brand-name">SHRI LCM <small>SWEETS & BAKERY</small></span></a>
-            <p>Made with a little more love.<br />Shared with a lot more joy.</p>
-            <a class="instagram-link" href="https://www.instagram.com/" target="_blank" rel="noreferrer"><i data-lucide="instagram"></i> Follow along on Instagram <i data-lucide="arrow-up-right"></i></a>
+            <a class="brand brand-footer" href="#home" aria-label="SHREE LCM SWEETS होम"><img class="brand-logo" src="/assets/logo/shree-lcm-navbar.png" alt="SHREE LCM SWEETS" /></a>
+            <p>ताज़ी मिठाइयाँ और बेकरी का स्वाद।</p>
+            <div class="footer-social" aria-labelledby="footer-social-title">
+              <h2 class="footer-label" id="footer-social-title">सोशल मीडिया</h2>
+              <div class="footer-social-links">
+                <a class="footer-social-link" data-social-link="instagram" target="_blank" rel="noopener noreferrer" aria-label="Instagram profile link not configured" aria-disabled="true" tabindex="-1" title="Official Instagram profile URL is not configured">
+                  <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3.5" y="3.5" width="17" height="17" rx="5" fill="none" stroke="currentColor" stroke-width="1.8"/><circle cx="12" cy="12" r="4" fill="none" stroke="currentColor" stroke-width="1.8"/><circle cx="17.7" cy="6.6" r="1.1" fill="currentColor"/></svg>
+                </a>
+                <a class="footer-social-link" data-social-link="facebook" target="_blank" rel="noopener noreferrer" aria-label="Facebook profile link not configured" aria-disabled="true" tabindex="-1" title="Official Facebook profile URL is not configured">
+                  <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M13.5 21v-8h2.8l.4-3.1h-3.2v-2c0-.9.3-1.6 1.6-1.6h1.7V3.5c-.3 0-1.3-.1-2.5-.1-2.5 0-4.2 1.5-4.2 4.3v2.2H7.3V13h2.8v8h3.4Z" fill="currentColor"/></svg>
+                </a>
+                <a class="footer-social-link" data-social-link="youtube" target="_blank" rel="noopener noreferrer" aria-label="YouTube profile link not configured" aria-disabled="true" tabindex="-1" title="Official YouTube profile URL is not configured">
+                  <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M21 7.2a2.5 2.5 0 0 0-1.8-1.8C17.6 5 12 5 12 5s-5.6 0-7.2.4A2.5 2.5 0 0 0 3 7.2 26 26 0 0 0 2.6 12 26 26 0 0 0 3 16.8a2.5 2.5 0 0 0 1.8 1.8C6.4 19 12 19 12 19s5.6 0 7.2-.4a2.5 2.5 0 0 0 1.8-1.8 26 26 0 0 0 .4-4.8 26 26 0 0 0-.4-4.8Z" fill="currentColor"/><path d="m10 15.3 5.2-3.3L10 8.7v6.6Z" fill="#fffaf4"/></svg>
+                </a>
+              </div>
+              <p class="footer-social-note" data-social-placeholder>आधिकारिक प्रोफ़ाइल लिंक मिलने पर जोड़े जाएँगे।</p>
+            </div>
+            <svg class="footer-shop-illustration" viewBox="0 0 170 100" role="img" aria-label="Small sweets shop illustration">
+              <path d="M24 43h122v49H24z" fill="#f3c997" stroke="#8f5732" stroke-width="2"/>
+              <path d="M18 42 31 16h108l13 26z" fill="#fff1db" stroke="#8f5732" stroke-width="2"/>
+              <path d="M20 42h130v14H20z" fill="#dc8045" stroke="#8f5732" stroke-width="2"/>
+              <path d="M31 42V31h17v11m8 0V31h17v11m8 0V31h17v11m8 0V31h17v11m8 0V31h11v11" fill="#fff1db" stroke="#8f5732" stroke-width="1.5"/>
+              <path d="M72 66h27v26H72z" fill="#fff8ec" stroke="#8f5732" stroke-width="2"/>
+              <path d="M33 66h24v17H33zm79 0h24v17h-24z" fill="#fff8ec" stroke="#8f5732" stroke-width="2"/>
+              <path d="M76 77h19m-19 6h19" stroke="#dc8045" stroke-width="2"/>
+              <path d="M17 92h136" stroke="#8f5732" stroke-width="2" stroke-linecap="round"/>
+            </svg>
           </div>
-          <div class="footer-column"><span class="footer-label">COME ON IN</span><p>Visit us for something<br />freshly made and lovely.</p><a class="footer-link" href="https://www.google.com/maps/search/?api=1&query=Shri+LCM+Sweets+%26+Bakery" target="_blank" rel="noreferrer">Find us on Google Maps <i data-lucide="arrow-up-right"></i></a></div>
-          <div class="footer-column"><span class="footer-label">LET'S TALK SWEETS</span><p>Questions, a celebration,<br />or just saying hello.</p><a class="footer-link" href="https://wa.me/?text=Hello%20Shri%20LCM%21" target="_blank" rel="noreferrer"><i data-lucide="message-circle"></i> Chat with us on WhatsApp</a></div>
-          <div class="footer-column footer-hours"><span class="footer-label">FRESH FROM OUR KITCHEN</span><p>Made in small batches,<br />with care, every day.</p><a class="footer-link" href="#collections">Explore our collections <i data-lucide="arrow-up-right"></i></a></div>
+          <nav class="footer-column footer-links" aria-label="ज़रूरी लिंक">
+            <h2 class="footer-label">ज़रूरी लिंक</h2>
+            <a class="footer-link" href="#home">होम</a>
+            <a class="footer-link" href="#collections" data-category-shortcut="sweets">मिठाइयाँ</a>
+            <a class="footer-link" href="#collections" data-category-shortcut="bakery">बेकरी</a>
+            <a class="footer-link" href="#collections" data-category-shortcut="cakes">केक</a>
+          </nav>
+          <nav class="footer-column footer-links" aria-label="सहायता">
+            <h2 class="footer-label">सहायता</h2>
+            <a class="footer-link" href="#our-story">हमारे बारे में</a>
+            <a class="footer-link" href="#visit-shop">संपर्क करें</a>
+            <a class="footer-link" href="https://wa.me/919304044471?text=Hello%20Shri%20LCM%2C%20please%20help%20me%20with%20my%20questions%20about%20your%20shop." target="_blank" rel="noreferrer">FAQs</a>
+            <a class="footer-link" href="https://wa.me/919304044471?text=Hello%20Shri%20LCM%2C%20please%20share%20your%20return%20policy." target="_blank" rel="noreferrer">Return Policy</a>
+          </nav>
+          <div class="footer-column footer-order">
+            <h2 class="footer-label">ऑर्डर करें</h2>
+            <p>ऑर्डर की जानकारी के लिए</p>
+            <a class="footer-whatsapp" href="https://wa.me/919304044471" target="_blank" rel="noreferrer"><i data-lucide="message-circle"></i> WhatsApp पर ऑर्डर करें</a>
+            <span class="footer-phone">+91 9304044471</span>
+            <svg class="footer-sweets-illustration" viewBox="0 0 120 90" role="img" aria-label="Indian sweets illustration">
+              <path d="M20 60c0-15 18-31 40-31s40 16 40 31-18 20-40 20-40-5-40-20Z" fill="#f1c48b" stroke="#9a6037" stroke-width="2"/>
+              <path d="M30 57c5-11 13-13 18-6s-4 14 2 17 10-4 7-11 3-13 10-10 3 12 9 14 8-5 5-10" fill="none" stroke="#dc7840" stroke-width="5" stroke-linecap="round"/>
+              <circle cx="42" cy="61" r="2" fill="#a94e31"/><circle cx="77" cy="57" r="2" fill="#a94e31"/>
+              <path d="M11 70c10 9 28 14 49 14s39-5 49-14" fill="none" stroke="#9a6037" stroke-width="2" stroke-linecap="round"/>
+              <path d="M60 18c-6-7-15 2-7 8l7 6 7-6c8-6-1-15-7-8Z" fill="#df7541" stroke="#9a6037" stroke-width="1.5"/>
+            </svg>
+          </div>
         </div>
-        <div class="footer-bottom"><span>© <span id="year"></span> Shri LCM Sweets & Bakery</span><span>Made for sharing, always.</span><a href="#home">Back to top ↑</a></div>
+        <div class="footer-bottom">
+          <span>Copyright © <span id="year"></span> SHREE LCM SWEETS.</span>
+          <nav class="footer-legal" aria-label="Legal information">
+            <a href="https://wa.me/919304044471?text=Hello%20Shri%20LCM%2C%20please%20share%20your%20privacy%20policy." target="_blank" rel="noreferrer">Privacy Policy</a>
+            <a href="https://wa.me/919304044471?text=Hello%20Shri%20LCM%2C%20please%20share%20your%20terms%20and%20conditions." target="_blank" rel="noreferrer">Terms &amp; Conditions</a>
+            <a href="https://wa.me/919304044471?text=Hello%20Shri%20LCM%2C%20please%20share%20your%20refund%20policy." target="_blank" rel="noreferrer">Refund Policy</a>
+          </nav>
+        </div>
       </footer>
     </div>
     <script type="module" src="/src/main.js"></script>
