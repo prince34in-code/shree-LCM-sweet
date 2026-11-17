@@ -100,6 +100,49 @@ document.querySelector("#year").textContent = new Date().getFullYear();
 const STORE_PHONE = "919304044471";
 const DELIVERY_RADIUS_KM = 5;
 const CART_STORAGE_KEY = "shri-lcm-cart-v1";
+const SWEET_PRODUCTS = [
+  { id: "rasgulla", name: "रसगुल्ला", image: "", prices: { 250: 60, 500: 120, 1000: 240 } },
+  { id: "gulab-jamun", name: "गुलाब जामुन", image: "", prices: { 250: 70, 500: 140, 1000: 280 } },
+  { id: "jalebi", name: "जलेबी", image: "", prices: { 250: 50, 500: 100, 1000: 200 } },
+  { id: "kaju-katli", name: "काजू कतली", image: "", prices: { 250: 150, 500: 300, 1000: 600 } },
+  { id: "peda", name: "पेड़ा", image: "", prices: { 250: 80, 500: 160, 1000: 320 } },
+  { id: "soan-papdi", name: "सोन पापड़ी", image: "", prices: { 250: 60, 500: 120, 1000: 240 } },
+  { id: "besan-ladoo", name: "बेसन के लड्डू", image: "", prices: { 250: 90, 500: 180, 1000: 360 } },
+  { id: "rasmalai", name: "रस मलाई", image: "", prices: { 250: 100, 500: 200, 1000: 400 } },
+  { id: "chomchom", name: "चमचम", image: "", prices: { 250: 80, 500: 160, 1000: 320 } },
+  { id: "motichoor-ladoo", name: "मोतीचूर के लड्डू", image: "", prices: { 250: 90, 500: 180, 1000: 360 } },
+];
+const SWEET_PLACEHOLDER_IMAGE = `data:image/svg+xml;charset=UTF-8,${encodeURIComponent(
+  '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 96 96"><path d="M22 51h52c0 16-12 28-26 28S22 67 22 51Z" fill="#d77f3f"/><circle cx="36" cy="39" r="8" fill="#b96c36"/><circle cx="51" cy="34" r="9" fill="#e1ae61"/><circle cx="64" cy="41" r="7" fill="#c98543"/><path d="M16 82h64" fill="none" stroke="#8a603e" stroke-linecap="round" stroke-width="4"/></svg>',
+)}`;
+const sweetProductCards = SWEET_PRODUCTS.map(({ id, name, image, prices }) => {
+  const inquiryUrl = new URL(`https://wa.me/${STORE_PHONE}`);
+  inquiryUrl.searchParams.set("text", `नमस्ते, कृपया ${name} के सही दाम और उपलब्धता बताइए।`);
+  const isPlaceholder = !image;
+
+  return `
+    <article class="product-card" data-product-id="${id}" data-category="sweets" data-name="${name}" data-price="${prices[500]}" data-base-grams="500" data-price-250="${prices[250]}" data-price-500="${prices[500]}" data-price-1000="${prices[1000]}">
+      <div class="product-image${isPlaceholder ? " product-image-placeholder" : ""}"${isPlaceholder ? ` role="img" aria-label="${name} की तस्वीर जल्द आएगी"` : ""}>
+        <img src="${image || SWEET_PLACEHOLDER_IMAGE}" alt="${image ? name : ""}" />
+        ${isPlaceholder ? "<span>तस्वीर जल्द आएगी</span>" : ""}
+      </div>
+      <div class="product-info">
+        <h3>${name}</h3>
+        <span class="price" data-product-price>₹${prices[500]}</span>
+        <label class="weight-select-label">वजन
+          <select class="weight-select" data-weight-select aria-label="${name} का वजन चुनें">
+            <option value="250">250 ग्राम</option>
+            <option value="500" selected>500 ग्राम</option>
+            <option value="1000">1 किलो</option>
+          </select>
+        </label>
+      </div>
+      <button class="add-to-cart" type="button" data-add-to-cart>टोकरी में डालें</button>
+      <a class="product-whatsapp-link" href="${inquiryUrl.href}" data-product-inquiry target="_blank" rel="noopener noreferrer">WhatsApp पर पूछें</a>
+    </article>
+  `;
+}).join("");
+document.querySelector("#popular-product-grid").insertAdjacentHTML("afterbegin", sweetProductCards);
 const productCards = [...document.querySelectorAll(".product-card[data-category]")];
 const purchasableProductCards = productCards.filter((card) => card.dataset.productId);
 const products = new Map(
@@ -110,8 +153,12 @@ const products = new Map(
       name: card.dataset.name,
       price: Number(card.dataset.price),
       baseGrams: Number(card.dataset.baseGrams) || null,
+      prices: Object.fromEntries([250, 500, 1000].flatMap((grams) => {
+        const price = Number(card.getAttribute(`data-price-${grams}`));
+        return Number.isFinite(price) && price > 0 ? [[grams, price]] : [];
+      })),
       category: card.dataset.category,
-      image: card.querySelector("img").src,
+      image: card.querySelector("img")?.src || "",
       available: card.dataset.availability !== "unavailable"
         && !(card.dataset.stock !== undefined && Number(card.dataset.stock) <= 0),
     },
@@ -191,9 +238,10 @@ function cartEntries() {
       if (!product) return null;
 
       const grams = separator === -1 ? null : Number(key.slice(separator + 2));
-      const unitPrice = product.baseGrams
-        ? Math.round(product.price * grams / product.baseGrams)
-        : product.price;
+      const unitPrice = product.prices[grams]
+        ?? (product.baseGrams
+          ? Math.round(product.price * grams / product.baseGrams)
+          : product.price);
       return { key, product, quantity, grams, unitPrice };
     })
     .filter((entry) => entry !== null);
@@ -272,9 +320,24 @@ function createOrderReference() {
 
 purchasableProductCards.forEach((card) => {
   const button = card.querySelector("[data-add-to-cart]");
-  if (!button) return;
   const weightSelect = card.querySelector("[data-weight-select]");
   const product = products.get(card.dataset.productId);
+  const priceLabel = card.querySelector("[data-product-price]");
+  const inquiryLink = card.querySelector("[data-product-inquiry]");
+  if (weightSelect) {
+    weightSelect.addEventListener("change", () => {
+      const grams = Number(weightSelect.value);
+      if (priceLabel && product.prices[grams]) {
+        priceLabel.textContent = currency.format(product.prices[grams]);
+      }
+      if (inquiryLink) {
+        const inquiryUrl = new URL(inquiryLink.href);
+        inquiryUrl.searchParams.set("text", `नमस्ते, कृपया ${product.name} के ${grams >= 1000 ? "1 किलो" : `${grams} ग्राम`} के सही दाम और उपलब्धता बताइए।`);
+        inquiryLink.href = inquiryUrl.href;
+      }
+    });
+  }
+  if (!button) return;
   if (!product.available) {
     button.disabled = true;
     button.textContent = "अभी उपलब्ध नहीं";
@@ -435,30 +498,38 @@ checkoutForm.addEventListener("submit", (event) => {
 
   const subtotal = entries.reduce((sum, entry) => sum + entry.unitPrice * entry.quantity, 0);
   const orderReference = createOrderReference();
+  const messageValue = (value) => typeof value === "string"
+    ? value.trim().replace(/\s+/g, " ")
+    : "";
+  const customerName = messageValue(formData.get("customerName")) || "Not provided";
+  const customerPhone = messageValue(formData.get("mobile")) || "Not provided";
+  const deliveryAddress = [
+    messageValue(formData.get("locality")),
+    messageValue(formData.get("address")),
+  ]
+    .filter(Boolean)
+    .join(", ") || "Not provided";
   const lines = [
-    "नमस्ते श्री LCM स्वीट्स एंड बेकरी, मैं यह ऑर्डर देखना चाहता/चाहती हूँ:",
+    "🛍️ *NEW ORDER – SHREE LCM SWEETS*",
     "",
-    `ऑर्डर संदर्भ (अभी सेव नहीं हुआ): ${orderReference}`,
-    `नाम: ${formData.get("customerName").trim()}`,
-    `मोबाइल नंबर: ${formData.get("mobile").trim()}`,
-    `गाँव / मोहल्ला: ${formData.get("locality").trim()}`,
-    `पता: ${formData.get("address").trim()}`,
-    `डिलीवरी सीमा: ग्राहक के बताए अनुसार ${DELIVERY_RADIUS_KM} किलोमीटर के अंदर; दुकान की पुष्टि बाकी`,
+    "👤 *Customer Details*",
+    `Name: ${customerName}`,
+    `Phone: ${customerPhone}`,
+    `Address: ${deliveryAddress}`,
     "",
-    "सामान:",
-    ...entries.map(({ product, quantity, grams, unitPrice }) =>
-      `- ${product.name}${grams ? ` (${grams >= 1000 ? `${grams / 1000} किलो` : `${grams} ग्राम`})` : ""} × ${quantity} — ${currency.format(unitPrice * quantity)} (अंदाज़े का दाम)`,
-    ),
+    "🧾 *Order Details*",
     "",
-    `सामान का जोड़ (अंदाज़ा): ${currency.format(subtotal)}`,
-    "घर पहुँचाने का खर्च: दुकान से पुष्टि बाकी",
-    `कुल रकम: ${currency.format(subtotal)} + घर पहुँचाने का खर्च (दुकान से पुष्टि बाकी)`,
-    "भुगतान: सामान मिलने पर नकद (COD)",
-    "सही दाम, सामान मिलने, 5 किलोमीटर की सीमा और घर पहुँचाने का खर्च दुकान से पक्का होगा।",
-    "WhatsApp में संदेश देखकर खुद Send दबाएँ। यह संदेश ऑर्डर की पुष्टि नहीं है; दुकान से बात करके ऑर्डर पक्का करें।",
+    ...entries.map(({ product, quantity, grams, unitPrice }, index) => {
+      const weight = grams ? (grams >= 1000 ? `${grams / 1000}kg` : `${grams}g`) : "N/A";
+      const amount = (unitPrice * quantity).toLocaleString("en-IN");
+      return `${index + 1}. ${product.name} – ${weight} × ${quantity} = ₹${amount}`;
+    }),
+    `*Total Amount: ₹${subtotal.toLocaleString("en-IN")}*`,
+    "",
+    "Payment: Cash on Delivery",
+    "",
+    "Please confirm this order.",
   ];
-  const instructions = formData.get("instructions").trim();
-  if (instructions) lines.push("", `खास बात: ${instructions}`);
 
   const whatsappUrl = new URL(`https://wa.me/${STORE_PHONE}`);
   whatsappUrl.searchParams.set("text", lines.join("\n"));
