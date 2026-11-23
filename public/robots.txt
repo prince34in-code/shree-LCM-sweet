@@ -1,4 +1,4 @@
 User-agent: *
-Allow: /shree-LCM-sweet/
+Allow: /
 
-Sitemap: https://prince34in-code.github.io/shree-LCM-sweet/sitemap.xml
+Sitemap: https://shreelcmsweets.com/sitemap.xml
