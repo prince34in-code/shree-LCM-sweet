@@ -101,43 +101,73 @@ const STORE_PHONE = "919304044471";
 const DELIVERY_RADIUS_KM = 5;
 const CART_STORAGE_KEY = "shri-lcm-cart-v1";
 const SWEET_PRODUCTS = [
-  { id: "rasgulla", name: "रसगुल्ला", image: "", prices: { 250: 60, 500: 120, 1000: 240 } },
-  { id: "gulab-jamun", name: "गुलाब जामुन", image: "", prices: { 250: 70, 500: 140, 1000: 280 } },
-  { id: "jalebi", name: "जलेबी", image: "", prices: { 250: 50, 500: 100, 1000: 200 } },
-  { id: "kaju-katli", name: "काजू कतली", image: "", prices: { 250: 150, 500: 300, 1000: 600 } },
-  { id: "peda", name: "पेड़ा", image: "", prices: { 250: 80, 500: 160, 1000: 320 } },
-  { id: "soan-papdi", name: "सोन पापड़ी", image: "", prices: { 250: 60, 500: 120, 1000: 240 } },
-  { id: "besan-ladoo", name: "बेसन के लड्डू", image: "", prices: { 250: 90, 500: 180, 1000: 360 } },
-  { id: "rasmalai", name: "रस मलाई", image: "", prices: { 250: 100, 500: 200, 1000: 400 } },
-  { id: "chomchom", name: "चमचम", image: "", prices: { 250: 80, 500: 160, 1000: 320 } },
-  { id: "motichoor-ladoo", name: "मोतीचूर के लड्डू", image: "", prices: { 250: 90, 500: 180, 1000: 360 } },
+  { id: "dahi", name: "दही", image: `${import.meta.env.BASE_URL}assets/sweets/dahi.jpeg`, price: 120, unit: "kg" },
+  { id: "kaju-katli", name: "काजू कतली", image: `${import.meta.env.BASE_URL}assets/sweets/काजू कतली.jpeg`, price: 1000, unit: "kg" },
+  { id: "cream-chap", name: "क्रीम चाप", image: `${import.meta.env.BASE_URL}assets/sweets/क्रीम चाप.jpeg`, price: 320, unit: "kg" },
+  { id: "khoya-gulab-jamun", name: "खोया गुलाब जामुन", image: `${import.meta.env.BASE_URL}assets/sweets/खोया गुलाब जामुन.jpeg`, price: null, unit: "kg" },
+  { id: "khoya-barfi", name: "खोया बर्फी", image: `${import.meta.env.BASE_URL}assets/sweets/खोया बर्फी.jpeg`, price: 600, unit: "kg" },
+  { id: "gulab-jamun", name: "गुलाब जामुन", image: `${import.meta.env.BASE_URL}assets/sweets/गुलाब जामुन.jpeg`, price: 280, unit: "kg" },
+  { id: "gond-ladoo", name: "गोंद के लड्डू", image: `${import.meta.env.BASE_URL}assets/sweets/गोंद के लड्डू.jpeg`, price: 160, unit: "kg" },
+  { id: "chandra-kala", name: "चंद्रकला", image: `${import.meta.env.BASE_URL}assets/sweets/चन्द्रकला.jpeg`, price: null, unit: "kg" },
+  { id: "chomchom", name: "चमचम", image: `${import.meta.env.BASE_URL}assets/sweets/चमचम.jpeg`, price: 280, unit: "kg" },
+  { id: "jalebi", name: "जलेबी", image: `${import.meta.env.BASE_URL}assets/sweets/जलेबी.jpeg`, price: null, unit: "kg" },
+  { id: "dhoda-barfi", name: "डोडा बर्फी", image: `${import.meta.env.BASE_URL}assets/sweets/डोडा बर्फी.jpeg`, price: 28, unit: "piece" },
+  { id: "desi-ghee-ladoo", name: "देसी घी के लड्डू", image: `${import.meta.env.BASE_URL}assets/sweets/देसी घी के लड्डू.jpeg`, price: 400, unit: "kg" },
+  { id: "coconut-ladoo", name: "नारियल लड्डू", image: `${import.meta.env.BASE_URL}assets/sweets/नारियल लड्डू.jpeg`, price: null, unit: "kg" },
+  { id: "pista-chomchom-1", name: "पिस्ता चमचम 1", image: `${import.meta.env.BASE_URL}assets/sweets/पिस्ता चमचम 1.jpeg`, price: 320, unit: "kg" },
+  { id: "pista-chomchom-2", name: "पिस्ता चमचम 2", image: `${import.meta.env.BASE_URL}assets/sweets/पिस्ता चमचम 2.jpeg`, price: 280, unit: "kg" },
+  { id: "peda", name: "पेड़ा", image: `${import.meta.env.BASE_URL}assets/sweets/पेड़ा.jpeg`, price: 550, unit: "kg" },
+  { id: "batisa", name: "बतिसा", image: `${import.meta.env.BASE_URL}assets/sweets/बतिसा.jpeg`, price: 440, unit: "kg" },
+  { id: "balushahi", name: "बालूशाही", image: `${import.meta.env.BASE_URL}assets/sweets/बालूशाही.jpeg`, price: null, unit: "kg" },
+  { id: "besan-ladoo", name: "बेसन लड्डू", image: `${import.meta.env.BASE_URL}assets/sweets/बेसन लड्डू.jpeg`, price: null, unit: "kg" },
+  { id: "motichoor-ladoo", name: "मोतीचूर लड्डू", image: `${import.meta.env.BASE_URL}assets/sweets/मोतीचूर लड्डू.jpeg`, price: null, unit: "kg" },
+  { id: "rabadi", name: "रबड़ी", image: `${import.meta.env.BASE_URL}assets/sweets/रबड़ी.jpeg`, price: 550, unit: "kg" },
+  { id: "rasgulla", name: "रसगुल्ला", image: `${import.meta.env.BASE_URL}assets/sweets/रसगुल्ला.jpeg`, price: null, unit: "kg" },
+  { id: "rasmalai", name: "रसमलाई", image: `${import.meta.env.BASE_URL}assets/sweets/रसमलाई.jpeg`, price: 40, unit: "piece" },
+  { id: "rajbhog", name: "राजभोग", image: `${import.meta.env.BASE_URL}assets/sweets/राजभोग.jpeg`, price: null, unit: "kg" },
+  { id: "lalmohan", name: "तालमोहान", image: `${import.meta.env.BASE_URL}assets/sweets/लालमोहन.jpeg`, price: null, unit: "kg" },
+  { id: "soan-papdi", name: "सोन पापड़ी", image: `${import.meta.env.BASE_URL}assets/sweets/सोन पापड़ी.jpeg`, price: 300, unit: "kg" },
+  { id: "kalakand", name: "Kalakand", image: `${import.meta.env.BASE_URL}assets/sweets/kalakand.jpeg`, price: 600, unit: "kg" },
+  { id: "pgt", name: "PGT", image: `${import.meta.env.BASE_URL}assets/sweets/PGT.jpeg`, price: 320, unit: "kg" },
 ];
 const SWEET_PLACEHOLDER_IMAGE = `data:image/svg+xml;charset=UTF-8,${encodeURIComponent(
   '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 96 96"><path d="M22 51h52c0 16-12 28-26 28S22 67 22 51Z" fill="#d77f3f"/><circle cx="36" cy="39" r="8" fill="#b96c36"/><circle cx="51" cy="34" r="9" fill="#e1ae61"/><circle cx="64" cy="41" r="7" fill="#c98543"/><path d="M16 82h64" fill="none" stroke="#8a603e" stroke-linecap="round" stroke-width="4"/></svg>',
 )}`;
-const sweetProductCards = SWEET_PRODUCTS.map(({ id, name, image, prices }) => {
+const sweetProductCards = SWEET_PRODUCTS.map(({ id, name, image, price, unit }) => {
   const inquiryUrl = new URL(`https://wa.me/${STORE_PHONE}`);
   inquiryUrl.searchParams.set("text", `नमस्ते, कृपया ${name} के सही दाम और उपलब्धता बताइए।`);
   const isPlaceholder = !image;
+  const askPrice = price === null;
+  const isPiece = unit === "piece";
+  const kgPrices = isPiece || askPrice ? null : {
+    250: Math.round(price * 0.25),
+    500: Math.round(price * 0.5),
+    1000: price,
+  };
+  const priceDisplay = askPrice
+    ? "दाम पूछें"
+    : isPiece
+      ? `₹${price} / पीस`
+      : `₹${price} / किलो`;
 
   return `
-    <article class="product-card" data-product-id="${id}" data-category="sweets" data-name="${name}" data-price="${prices[500]}" data-base-grams="500" data-price-250="${prices[250]}" data-price-500="${prices[500]}" data-price-1000="${prices[1000]}">
+    <article class="product-card" data-product-id="${id}" data-category="sweets" data-name="${name}" ${askPrice ? 'data-inquiry-only="true"' : isPiece ? `data-price="${price}"` : `data-price="${kgPrices[500]}" data-base-grams="500" data-price-250="${kgPrices[250]}" data-price-500="${kgPrices[500]}" data-price-1000="${kgPrices[1000]}"`}>
       <div class="product-image${isPlaceholder ? " product-image-placeholder" : ""}"${isPlaceholder ? ` role="img" aria-label="${name} की तस्वीर जल्द आएगी"` : ""}>
         <img src="${image || SWEET_PLACEHOLDER_IMAGE}" alt="${image ? name : ""}" />
         ${isPlaceholder ? "<span>तस्वीर जल्द आएगी</span>" : ""}
       </div>
       <div class="product-info">
         <h3>${name}</h3>
-        <span class="price" data-product-price>₹${prices[500]}</span>
-        <label class="weight-select-label">वजन
+        <span class="price" data-product-price>${priceDisplay}</span>
+        ${askPrice || isPiece ? "" : `<label class="weight-select-label">वजन
           <select class="weight-select" data-weight-select aria-label="${name} का वजन चुनें">
             <option value="250">250 ग्राम</option>
             <option value="500" selected>500 ग्राम</option>
             <option value="1000">1 किलो</option>
           </select>
-        </label>
+        </label>`}
       </div>
-      <button class="add-to-cart" type="button" data-add-to-cart>टोकरी में डालें</button>
+      ${askPrice ? "" : '<button class="add-to-cart" type="button" data-add-to-cart>टोकरी में डालें</button>'}
       <a class="product-whatsapp-link" href="${inquiryUrl.href}" data-product-inquiry target="_blank" rel="noopener noreferrer">WhatsApp पर पूछें</a>
     </article>
   `;
