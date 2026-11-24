@@ -1,23 +1,26 @@
 @import "tailwindcss";
 
+/* Global design settings: edit colors, fonts, and reusable theme values here. */
 :root {
-  font-family: "Noto Sans Devanagari", sans-serif;
-  color: #281e17;
-  background: #f7f3eb;
+  font-family: var(--body-font);
+  color: #38281d;
+  background: #fffaf4;
   font-synthesis: none;
   text-rendering: optimizeLegibility;
-  --cream: #f7f3eb;
-  --paper: #efe9dd;
-  --ink: #281e17;
-  --brown: #211710;
-  --gold: #c9a76a;
-  --muted: #84796d;
-  --serif: "Noto Sans Devanagari", sans-serif;
+  --cream: #fffaf4;
+  --paper: #fff3e7;
+  --ink: #38281d;
+  --brown: #563a29;
+  --gold: #ef9c55;
+  --muted: #78695d;
+  --body-font: "Noto Sans Devanagari", sans-serif;
+  --display-font: "Hind", "Noto Sans Devanagari", sans-serif;
+  --serif: var(--display-font);
 }
 
 * { box-sizing: border-box; }
-html { scroll-behavior: smooth; scroll-padding-top: 85px; }
-body { margin: 0; min-width: 320px; }
+html { scroll-behavior: smooth; scroll-padding-top: 66px; }
+body { margin: 0; min-width: 320px; background: #fffaf4; }
 a { color: inherit; text-decoration: none; }
 button { font: inherit; }
 img { display: block; width: 100%; }
@@ -50,6 +53,7 @@ img { display: block; width: 100%; }
 .header-order svg { width: 15px; height: 15px; }
 .menu-toggle { display: none; color: #fff; background: none; border: 0; padding: 8px; }
 
+/* Hero slider */
 .hero { position: relative; min-height: 740px; height: 100svh; max-height: 1100px; overflow: hidden; color: #fff; background: var(--brown); }
 .hero-swiper, .hero-swiper .swiper-wrapper, .hero-slide { position: absolute; inset: 0; width: 100%; height: 100%; }
 .hero-slide { background-image: var(--hero-image); background-size: cover; background-position: center 54%; }
@@ -81,6 +85,7 @@ h1 em, h2 em { color: var(--gold); font-weight: 400; }
 .scroll-cue { position: absolute; z-index: 2; bottom: 44px; left: 7.2%; display: flex; gap: 11px; align-items: center; color: rgb(255 255 255 / 64%); font-size: 8px; letter-spacing: .18em; }
 .scroll-cue span { width: 30px; height: 1px; background: var(--gold); }
 
+/* Main content sections */
 .section-wrap { padding-left: 11%; padding-right: 11%; }
 .intro { min-height: 380px; padding-top: 117px; padding-bottom: 105px; display: grid; grid-template-columns: 1fr 2fr .55fr; align-items: start; gap: 6%; position: relative; }
 .intro-label { padding-top: 15px; }
@@ -236,6 +241,7 @@ h1 em, h2 em { color: var(--gold); font-weight: 400; }
 .footer-bottom { min-height: 55px; border-top: 1px solid rgb(255 255 255 / 13%); display: flex; align-items: center; justify-content: space-between; color: rgb(247 243 235 / 47%); font-size: 8px; letter-spacing: .04em; }
 .footer-bottom a { color: #dec99e; }
 
+/* Responsive layout adjustments */
 @media (min-width: 1500px) {
   .section-wrap { padding-left: max(11%, calc((100% - 1220px) / 2)); padding-right: max(11%, calc((100% - 1220px) / 2)); }
 }
@@ -346,21 +352,7 @@ h1 em, h2 em { color: var(--gold); font-weight: 400; }
   *, *::before, *::after { scroll-behavior: auto !important; transition-duration: .01ms !important; animation-duration: .01ms !important; animation-iteration-count: 1 !important; }
 }
 
-/* Friendly shop styling: retain the existing sections and imagery while making products easier to browse. */
-:root {
-  color: #38281d;
-  background: #fffaf4;
-  --cream: #fffaf4;
-  --paper: #fff3e7;
-  --ink: #38281d;
-  --brown: #563a29;
-  --gold: #ef9c55;
-  --muted: #78695d;
-  --serif: "Noto Sans Devanagari", sans-serif;
-}
-
-html { scroll-padding-top: 66px; }
-body { background: #fffaf4; }
+/* Shop layout and component refinements */
 .site-header { position: sticky; inset: auto; top: 0; height: 76px; padding: 0 6%; color: var(--ink); background: #fff; border-bottom: 1px solid #eee4d9; box-shadow: 0 2px 8px rgb(75 52 33 / 4%); }
 .brand-mark { border-color: #d98643; color: #b86c32; }
 .brand-name { color: #452f21; letter-spacing: .12em; }
@@ -1549,13 +1541,6 @@ main .eyebrow:not(.hero-eyebrow) {
 }
 
 /* Hindi content typography refinements */
-:root {
-  --body-font: "Noto Sans Devanagari", sans-serif;
-  --display-font: "Hind", "Noto Sans Devanagari", sans-serif;
-  --serif: var(--display-font);
-  font-family: var(--body-font);
-}
-
 body,
 button,
 input,

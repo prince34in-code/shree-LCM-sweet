@@ -3,6 +3,8 @@ import Swiper from "swiper";
 import { Autoplay, Mousewheel, Pagination } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/pagination";
+import { SITE_CONFIG } from "./site-config.js";
+import { SWEET_PRODUCTS, SWEET_PLACEHOLDER_IMAGE } from "./products.js";
 import {
   createIcons,
   ArrowDown,
@@ -23,16 +25,32 @@ import {
   UserRound,
 } from "lucide";
 
+const STORE_PHONE = SITE_CONFIG.business.whatsappNumber;
+const DELIVERY_RADIUS_KM = SITE_CONFIG.deliveryRadiusKm;
+const CART_STORAGE_KEY = SITE_CONFIG.cartStorageKey;
 const icons = { ArrowDown, ArrowUpRight, ChevronLeft, ChevronRight, Instagram, MapPin, Menu, MessageCircle, Minus, Plus, Search, ShoppingBag, Sparkles, Trash2, UserRound, X };
 createIcons({ icons });
 
-const SOCIAL_PROFILE_URLS = {
-  instagram: "",
-  facebook: "",
-  youtube: "",
-};
+// Manual edits to WhatsApp message wording live in src/site-config.js.
+document.querySelectorAll("[data-whatsapp-message]").forEach((link) => {
+  const messageKey = link.dataset.whatsappMessage;
+  const message = SITE_CONFIG.whatsappMessages[messageKey];
+  if (typeof message !== "string") {
+    throw new Error(`Missing WhatsApp message template: ${messageKey}`);
+  }
 
-const socialLinks = Object.entries(SOCIAL_PROFILE_URLS);
+  const whatsappUrl = new URL(`https://wa.me/${STORE_PHONE}`);
+  if (message) whatsappUrl.searchParams.set("text", message);
+  link.href = whatsappUrl.href;
+});
+
+document.querySelector("[data-store-address]").textContent = SITE_CONFIG.business.address;
+document.querySelector("[data-store-phone]").textContent = SITE_CONFIG.business.phoneDisplay;
+document.querySelector("[data-store-map-link]").href = SITE_CONFIG.business.mapsUrl;
+const mapCoordinates = SITE_CONFIG.business.mapsCoordinates.split(",").map(encodeURIComponent).join(",");
+document.querySelector("[data-store-map-embed]").src = `https://www.google.com/maps?q=${mapCoordinates}&z=15&output=embed`;
+
+const socialLinks = Object.entries(SITE_CONFIG.socialProfiles);
 for (const [platform, profileUrl] of socialLinks) {
   const link = document.querySelector(`[data-social-link="${platform}"]`);
   if (!link) throw new Error(`Missing footer social link for ${platform}.`);
@@ -97,45 +115,11 @@ navigation.querySelectorAll("a").forEach((link) => {
 
 document.querySelector("#year").textContent = new Date().getFullYear();
 
-const STORE_PHONE = "919304044471";
-const DELIVERY_RADIUS_KM = 5;
-const CART_STORAGE_KEY = "shri-lcm-cart-v1";
-const SWEET_PRODUCTS = [
-  { id: "dahi", name: "दही", image: `${import.meta.env.BASE_URL}assets/sweets/dahi.jpeg`, price: 122, unit: "kg" },
-  { id: "kaju-katli", name: "काजू कतली", image: `${import.meta.env.BASE_URL}assets/sweets/काजू कतली.jpeg`, price: 1000, unit: "kg" },
-  { id: "cream-chap", name: "क्रीम चाप", image: `${import.meta.env.BASE_URL}assets/sweets/क्रीम चाप.jpeg`, price: 320, unit: "kg" },
-  { id: "khoya-gulab-jamun", name: "खोया गुलाब जामुन", image: `${import.meta.env.BASE_URL}assets/sweets/खोया गुलाब जामुन.jpeg`, price: 320, unit: "kg" },
-  { id: "khoya-barfi", name: "खोया बर्फी", image: `${import.meta.env.BASE_URL}assets/sweets/खोया बर्फी.jpeg`, price: 600, unit: "kg" },
-  { id: "gulab-jamun", name: "गुलाब जामुन", image: `${import.meta.env.BASE_URL}assets/sweets/गुलाब जामुन.jpeg`, price: 280, unit: "kg" },
-  { id: "gond-ladoo", name: "गोंद लड्डू", image: `${import.meta.env.BASE_URL}assets/sweets/गोंद के लड्डू.jpeg`, price: 400, unit: "kg" },
-  { id: "chomchom", name: "चमचम", image: `${import.meta.env.BASE_URL}assets/sweets/चमचम.jpeg`, price: 280, unit: "kg" },
-  { id: "aloo-jalebi", name: "आलू जलेबी", image: `${import.meta.env.BASE_URL}assets/sweets/जलेबी.jpeg`, price: 280, unit: "kg" },
-  { id: "dhoda-barfi", name: "डोडा बर्फी", image: `${import.meta.env.BASE_URL}assets/sweets/डोडा बर्फी.jpeg`, price: 280, unit: "kg" },
-  { id: "desi-ghee-ladoo", name: "देसी घी लड्डू", image: `${import.meta.env.BASE_URL}assets/sweets/देसी घी के लड्डू.jpeg`, price: 600, unit: "kg" },
-  { id: "coconut-ladoo", name: "नारियल लड्डू", image: `${import.meta.env.BASE_URL}assets/sweets/नारियल लड्डू.jpeg`, price: 360, unit: "kg" },
-  { id: "pista-chomchom", name: "पिस्ता चमचम", image: `${import.meta.env.BASE_URL}assets/sweets/पिस्ता चमचम 1.jpeg`, price: 320, unit: "kg" },
-  { id: "peda", name: "शुद्ध देसी घी पेड़ा", image: `${import.meta.env.BASE_URL}assets/sweets/पेड़ा.jpeg`, price: 250, unit: "kg" },
-  { id: "batisa", name: "बतीसी", image: `${import.meta.env.BASE_URL}assets/sweets/बतिसा.jpeg`, price: 440, unit: "kg" },
-  { id: "balushahi", name: "बालूशाही", image: `${import.meta.env.BASE_URL}assets/sweets/बालूशाही.jpeg`, price: 260, unit: "kg" },
-  { id: "besan-ladoo", name: "बेसन लड्डू", image: `${import.meta.env.BASE_URL}assets/sweets/बेसन लड्डू.jpeg`, price: 360, unit: "kg" },
-  { id: "motichoor-ladoo", name: "मोतीचूर लड्डू", image: `${import.meta.env.BASE_URL}assets/sweets/मोतीचूर लड्डू.jpeg`, price: 180, unit: "kg" },
-  { id: "rabadi", name: "रबड़ी", image: `${import.meta.env.BASE_URL}assets/sweets/रबड़ी.jpeg`, price: 550, unit: "kg" },
-  { id: "rasgulla", name: "शुद्ध रसगुल्ला", image: `${import.meta.env.BASE_URL}assets/sweets/रसगुल्ला.jpeg`, price: 280, unit: "kg" },
-  { id: "rasmalai", name: "रस मलाई", image: `${import.meta.env.BASE_URL}assets/sweets/रसमलाई.jpeg`, price: 400, unit: "piece" },
-  { id: "rajbhog", name: "राजभोग", image: `${import.meta.env.BASE_URL}assets/sweets/राजभोग.jpeg`, price: 300, unit: "kg" },
-  { id: "lalmohan", name: "लाल मोहन", image: `${import.meta.env.BASE_URL}assets/sweets/लालमोहन.jpeg`, price: 260, unit: "kg" },
-  { id: "soan-papdi", name: "सोन पापड़ी", image: `${import.meta.env.BASE_URL}assets/sweets/सोन पापड़ी.jpeg`, price: 300, unit: "kg" },
-  { id: "pgt", name: "PGT", image: `${import.meta.env.BASE_URL}assets/sweets/PGT.jpeg`, price: 320, unit: "kg" },
-  { id: "kalakand", name: "कालाकंद", image: `${import.meta.env.BASE_URL}assets/sweets/kalakand.jpeg`, price: 450, unit: "kg" },
-  { id: "balthar-gaja", name: "बलथर का फेमस गाजा", image: "", price: 180, unit: "kg" },
-];
-const SWEET_PLACEHOLDER_IMAGE = `data:image/svg+xml;charset=UTF-8,${encodeURIComponent(
-  '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 96 96"><path d="M22 51h52c0 16-12 28-26 28S22 67 22 51Z" fill="#d77f3f"/><circle cx="36" cy="39" r="8" fill="#b96c36"/><circle cx="51" cy="34" r="9" fill="#e1ae61"/><circle cx="64" cy="41" r="7" fill="#c98543"/><path d="M16 82h64" fill="none" stroke="#8a603e" stroke-linecap="round" stroke-width="4"/></svg>',
-)}`;
 const sweetProductCards = SWEET_PRODUCTS.map(({ id, name, image, price, unit }) => {
+  const productImage = image ? `${import.meta.env.BASE_URL}${image}` : "";
   const inquiryUrl = new URL(`https://wa.me/${STORE_PHONE}`);
-  inquiryUrl.searchParams.set("text", `नमस्ते, कृपया ${name} के सही दाम और उपलब्धता बताइए।`);
-  const isPlaceholder = !image;
+  inquiryUrl.searchParams.set("text", SITE_CONFIG.whatsappMessages.productInquiry(name));
+  const isPlaceholder = !productImage;
   const askPrice = price === null;
   const isPiece = unit === "piece";
   const kgPrices = isPiece || askPrice ? null : {
@@ -152,7 +136,7 @@ const sweetProductCards = SWEET_PRODUCTS.map(({ id, name, image, price, unit }) 
   return `
     <article class="product-card" data-product-id="${id}" data-category="sweets" data-name="${name}" ${askPrice ? 'data-inquiry-only="true"' : isPiece ? `data-price="${price}"` : `data-price="${kgPrices[500]}" data-base-grams="500" data-price-250="${kgPrices[250]}" data-price-500="${kgPrices[500]}" data-price-1000="${kgPrices[1000]}"`}>
       <div class="product-image${isPlaceholder ? " product-image-placeholder" : ""}"${isPlaceholder ? ` role="img" aria-label="${name} की तस्वीर जल्द आएगी"` : ""}>
-        <img src="${image || SWEET_PLACEHOLDER_IMAGE}" alt="${image ? name : ""}" />
+        <img src="${productImage || SWEET_PLACEHOLDER_IMAGE}" alt="${productImage ? name : ""}" />
         ${isPlaceholder ? "<span>तस्वीर जल्द आएगी</span>" : ""}
       </div>
       <div class="product-info">
@@ -361,7 +345,7 @@ purchasableProductCards.forEach((card) => {
       }
       if (inquiryLink) {
         const inquiryUrl = new URL(inquiryLink.href);
-        inquiryUrl.searchParams.set("text", `नमस्ते, कृपया ${product.name} के ${grams >= 1000 ? "1 किलो" : `${grams} ग्राम`} के सही दाम और उपलब्धता बताइए।`);
+        inquiryUrl.searchParams.set("text", SITE_CONFIG.whatsappMessages.productInquiryAtWeight(product.name, grams));
         inquiryLink.href = inquiryUrl.href;
       }
     });
@@ -539,7 +523,7 @@ checkoutForm.addEventListener("submit", (event) => {
     .filter(Boolean)
     .join(", ") || "Not provided";
   const lines = [
-    "🛍️ *NEW ORDER – SHREE LCM SWEETS*",
+    `🛍️ *NEW ORDER – ${SITE_CONFIG.business.name}*`,
     "",
     "👤 *Customer Details*",
     `Name: ${customerName}`,
